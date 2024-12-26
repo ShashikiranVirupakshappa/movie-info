@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: movie-info-deploy
+  namespace: default
+  labels:
+    app: movie-info
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: movie-info
+  template:
+    metadata:
+      labels:
+        app: movie-info
+    spec:
+      containers:
+        -
+          image: shashi72174/movie-info:latest
+          imagePullPolicy: Always
+          ports:
+            -
+              containerPort: 8090
+              name: movie-info
+          name: movie-info
