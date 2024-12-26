@@ -21,6 +21,6 @@ spec:
           imagePullPolicy: Always
           ports:
             -
-              containerPort: 8090
+              containerPort: 8082
               name: movie-info
           name: movie-info
