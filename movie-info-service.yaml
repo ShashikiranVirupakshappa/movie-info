@@ -8,8 +8,8 @@ metadata:
 spec:
   ports:
     -
-      port: 8090
-      targetPort: 8090
+      port: 8082
+      targetPort: 8082
       protocol: TCP
       nodePort: 30000
   selector:
