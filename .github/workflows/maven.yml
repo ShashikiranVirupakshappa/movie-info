@@ -59,3 +59,8 @@ jobs:
         kubectl apply -f movie-info-deployment.yaml
         kubectl apply -f movie-info-service.yaml
         kubectl get pods
+    - name: Test Service URLs
+      run: |
+        minikube service list
+        minikube service movie-info-service --url
+        minikube ip
