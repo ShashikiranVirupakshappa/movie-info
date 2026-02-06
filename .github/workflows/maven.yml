@@ -47,3 +47,15 @@ jobs:
         push: true
         tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/movie-info:2.0
+
+    - name: Start Minikube
+      uses: medyagh/setup-minikube@latest
+
+    - name: Set kubectl context
+      run: kubectl cluster-info
+
+    - name: Deploy app
+      run: |
+        kubectl apply -f movie-info-deployment.yaml
+        kubectl apply -f movie-info-service.yaml
+        kubectl get pods
