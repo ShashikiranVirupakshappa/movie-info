@@ -17,7 +17,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
     - uses: actions/checkout@v4
@@ -50,9 +50,13 @@ jobs:
 
     - name: Start Minikube
       uses: medyagh/setup-minikube@latest
+      with:
+        driver: hyperv
 
     - name: Set kubectl context
-      run: kubectl cluster-info
+      run: |
+        kubectl cluster-info
+        kubectl get nodes
 
     - name: Deploy app
       run: |
